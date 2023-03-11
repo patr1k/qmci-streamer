@@ -1,0 +1,29 @@
+{
+  "name": "qmci-streamer",
+  "version": "2.29.0",
+  "description": "QMCI Streamer",
+  "keywords": [
+    "react",
+    "hooks",
+    "react-hooks",
+    "keycloak"
+  ],
+  "main": "qmci-streamer-2.29.0.js",
+  "scripts": {
+    "build": "rimraf lib && babel ./src -d lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patr1k/qmci-streamer.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "homepage": "https://github.com/patr1k/qmci-streamer#readme",
+  "devDependencies": {
+  },
+  "peerDependencies": {
+  },
+  "dependencies": {
+  }
+}
