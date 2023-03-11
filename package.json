@@ -15,10 +15,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/patr1k/qmci-streamer.git"
+    "url": "git://github.com/patr1k/qmci-streamer.git"
   },
   "author": "",
-  "types": "index.d.ts",
   "license": "MIT",
   "homepage": "https://github.com/patr1k/qmci-streamer#readme",
   "devDependencies": {

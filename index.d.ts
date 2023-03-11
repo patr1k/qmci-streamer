@@ -1,17 +1,17 @@
-declare module qmci {
-  interface ILoginCredentials {
+declare module "qmci-streamer" {
+  export interface ILoginCredentials {
     wmid: string;
     username: string;
     password: string;
   }
-  interface ILoginOptions {
+  export interface ILoginOptions {
     host: string;
     credentials: ILoginCredentials;
   }
-  interface IOpenCredentials {
+  export interface IOpenCredentials {
     sid: string;
   }
-  interface IOpenOptions {
+  export interface IOpenOptions {
     host: string;
     cors: boolean;
     rejectExcessiveConnection: boolean;
@@ -19,20 +19,20 @@ declare module qmci {
     format: string;
     credentials: IOpenCredentials;
   }
-  interface ISubscribeOptions {
+  export interface ISubscribeOptions {
     skipHeavyInitialLoad: boolean;
     conflation?: string | null;
   }
-  interface ISubscription {
+  export interface ISubscription {
     symbol: string;
     type: string;
     entitlement: string;
   }
-  interface ISubscribed {
+  export interface ISubscribed {
     subscribed: ISubscription[];
     unsubscribed: ISubscription[];
   }
-  interface IDataTypes {
+  export interface IDataTypes {
     QUOTE: string;
     PRICEDATA: string;
     TRADE: string;
@@ -46,13 +46,13 @@ declare module qmci {
     IMBALANCESTATUS: string;
   }
 
-  class Stream {
+  export class Stream {
     on(messageType: string, messageHandler: (message: IMessage) => void): Stream;
     subscribe(symbols: string[], dataTypes: string[], options: ISubscribeOptions, then: (err: string | null, subscribed: ISubscribed) => void);
     unsubscribe(symbols: string[], dataTypes: string[], options: ISubscribeOptions, then: (err: string | null, unsubscribed: ISubscribed) => void);
   }
 
-  class StreamDataTypes {
+  export class StreamDataTypes {
     QUOTE: string;
     PRICEDATA: string;
     TRADE: string;
@@ -68,11 +68,11 @@ declare module qmci {
     get(message: IMessage): string;
   }
 
-  interface IMessage {
+  export interface IMessage {
     "@T": string;
   }
 
-  interface IPriceData extends IMessage {
+  export interface IPriceData extends IMessage {
     accumulatedPrice: number;
     accumulatedTradeValue: number;
     accumulatedVolume: number;
@@ -106,7 +106,7 @@ declare module qmci {
     vwap: number;
   }
 
-  interface IQuoteData extends IMessage {
+  export interface IQuoteData extends IMessage {
     askCondition: string;
     askExcode: string;
     askPrice: number;
@@ -121,7 +121,7 @@ declare module qmci {
     timestamp: number;
   }
 
-  interface IOrderData extends IMessage {
+  export interface IOrderData extends IMessage {
     allOrNone: boolean;
     cashSettlement: boolean;
     cashTodaySettlement: boolean;
@@ -146,7 +146,7 @@ declare module qmci {
     timestamp: number;
   }
 
-  class Streamer {
+  export class Streamer {
     static login(options: ILoginOptions, then: (err: string | null, sid: string | null) => void);
     static open(options: IOpenOptions, then: (err: string | null, stream: Stream | null) => void);
     static dataTypes: StreamDataTypes;
